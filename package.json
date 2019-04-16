@@ -1,0 +1,27 @@
+{
+  "name": "antserver",
+  "version": "1.0.0",
+  "description": "server for use ant chain by nodeJs SDK",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlpherJang/antServer-sdk.git"
+  },
+  "keywords": [
+    "ant",
+    "sdk"
+  ],
+  "author": "EvansZhang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AlpherJang/antServer-sdk/issues"
+  },
+  "homepage": "https://github.com/AlpherJang/antServer-sdk#readme",
+  "dependencies": {
+    "@alipay/mychain": "file:alipay-mychain-0.2.27.tgz",
+    "fs": "0.0.1-security"
+  }
+}
