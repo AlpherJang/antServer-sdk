@@ -22,6 +22,10 @@
   "homepage": "https://github.com/AlpherJang/antServer-sdk#readme",
   "dependencies": {
     "@alipay/mychain": "file:alipay-mychain-0.2.27.tgz",
+    "@alipay/solc": "file:alipay-solc-0.1.12.tgz",
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
     "fs": "0.0.1-security"
   }
 }
