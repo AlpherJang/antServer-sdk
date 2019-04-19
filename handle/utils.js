@@ -34,6 +34,15 @@ function getContract(chain, contractName, contractClassName) {
     return {myContract: myContract, byteCode: bytecode};
 }
 
+function getUpdateContract(chain, contractName, contractClassName) {
+    let contract = fs.readFileSync(buildPath(rootPath, config.contract.path), {encoding: config.contractCharset});
+    let output = solc.compile(contract, 1);
+    let abi = JSON.parse(output.contracts[':' + contractClassName].interface);
+    let myContract = chain.ctr.contract(contractName, abi);
+    let bytecode = output.contracts[':' + contractClassName].bytecode;
+    return {newContract: myContract, newByteCode: bytecode};
+}
+
 function buildPath(base, file) {
     return base + file;
 }
@@ -45,15 +54,25 @@ function errorParams(field) {
     };
 }
 
-function success(msg) {
+function errorInfo(err) {
+    return {
+        success: false,
+        error: err
+    }
+}
+
+function success(msg, res = null) {
     return {
         success: true,
-        error: msg
+        message: msg,
+        data: res
     };
 }
 
 exports.getChain = getChain;
 exports.buildPath = buildPath;
 exports.getContract = getContract;
+exports.getUpdateContract = getUpdateContract;
 exports.errorParams = errorParams;
+exports.errorInfo = errorInfo;
 exports.success = success;

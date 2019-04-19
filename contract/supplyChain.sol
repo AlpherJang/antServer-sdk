@@ -8,7 +8,7 @@ contract SupplyChain {
     struct File {
         string uid;
         string fileName;
-        string digest;
+        string digests;
         string owner;
     }
 
@@ -35,13 +35,14 @@ contract SupplyChain {
     string[] private invoiceUidList;
     mapping(string => Asset) Assets;
 
-    function Store(string uid, string fileName, string digest, string owner) public {
-        Files[uid] = File(uid, fileName, digest, owner);
+    function Store(string uid, string fileName, string digests, string owner) public {
+        Files[uid] = File(uid, fileName, digests, owner);
     }
 
-    function Query(string uid) public view returns (string retUid, string retFileName, string retDigest, string retOwner){
+    function Query(string uid) public view returns (string retUid, string retFileName, string retDigests, string retOwner){
+        require(IsExist(Files[uid].uid), "file not exists");
         File storage file = Files[uid];
-        return (file.uid, file.fileName, file.digest, file.owner);
+        return (file.uid, file.fileName, file.digests, file.owner);
     }
 
     function Source(string uid, int256 amount, string payDate, string seller, string buyer, string fileUid) public {

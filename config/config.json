@@ -1,0 +1,35 @@
+{
+  "server": {
+    "port": 8080
+  },
+  "certBasePath": "",
+  "user": {
+    "cert": "/certs/user.pem",
+    "password": "password"
+  },
+  "userRecover": {
+    "Cert": "/certs/user_recover.pem",
+    "password": "password"
+  },
+  "epoint": {
+    "host": "139.196.136.94",
+    "port": 18130
+  },
+  "client": {
+    "cert": "/certs/client.crt",
+    "key": "/certs/client.key",
+    "passphrass": "password"
+  },
+  "caCert": "/certs/ca.crt",
+  "chainUser": "password",
+  "contract": {
+    "name": "test",
+    "className": "SupplyChain",
+    "path": "/contract/supplyChain.sol",
+    "aesKey": "key"
+  },
+  "rsaPem": "/certs/tee_rsa_public_key.pem",
+  "timeout": 3000,
+  "certCharset": "utf8",
+  "contractCharset": "ascii"
+}

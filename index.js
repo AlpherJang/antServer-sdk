@@ -4,6 +4,7 @@ const bodyPaser = require('body-parser');
 const cors = require('cors');
 const config = require('./config/config.json');
 const router = require('./routes');
+require('console-color-mr');
 global.rootPath = __dirname;
 
 const app = express();
@@ -15,7 +16,7 @@ router(app);
 let server = app.listen(config.server.port || '8080', () => {
     let address = server.address().address == '::' ? 'localhost' : server.address().address == '::';
     let port = server.address().port;
-    console.log('server start.........');
-    console.log('server address: http://%s:%s', address, port)
+    console.log('server start.........'.red);
+    console.log('server address: http://%s:%s'.blue, address.yellow, port.yellow)
 });
 
